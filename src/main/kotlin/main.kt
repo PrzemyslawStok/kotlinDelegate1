@@ -27,7 +27,6 @@ class interCorei7(override val processorSpeed: Double, override val noCores: Dou
     override fun starProgram(): String {
         return "startProgram"
     }
-
 }
 
 open class computer(drive: computerDrive, Processor: processor) : computerDrive by drive, processor by Processor {
@@ -35,9 +34,20 @@ open class computer(drive: computerDrive, Processor: processor) : computerDrive 
         println(readData())
         println(writeData())
     }
+
+    fun info(){
+        println("processor speed $processorSpeed")
+        println("drive speed $speed")
+    }
+}
+
+class server(drive: computerDrive, Processor: processor) : computer(drive, Processor){
+
 }
 
 
 fun main() {
-
+    val simpleComputer = computer(ssd(2048.0, 500.0), interCorei7(1000.0, 4.0))
+    simpleComputer.start()
+    simpleComputer.info()
 }
