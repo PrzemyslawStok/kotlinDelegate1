@@ -34,7 +34,11 @@ class amdRyzen7(override val processorSpeed: Double, override val noCores: Doubl
     }
 }
 
-open class computer(drive: computerDrive, Processor: processor) : computerDrive by drive, processor by Processor {
+class port(val type: String){
+
+}
+
+open class computer(drive: computerDrive, Processor: processor, ports: List<port>) : computerDrive by drive, processor by Processor {
     fun start() {
         println(readData())
         println(writeData())
