@@ -34,11 +34,12 @@ class amdRyzen7(override val processorSpeed: Double, override val noCores: Doubl
     }
 }
 
-class port(val type: String){
+class port(val type: String) {
 
 }
 
-open class computer(drive: computerDrive, Processor: processor, ports: List<port>) : computerDrive by drive, processor by Processor {
+open class computer(drive: computerDrive, Processor: processor, open val ports: List<port>) : computerDrive by drive,
+    processor by Processor {
     fun start() {
         println(readData())
         println(writeData())
@@ -50,7 +51,8 @@ open class computer(drive: computerDrive, Processor: processor, ports: List<port
     }
 }
 
-class server(drive: computerDrive, Processor: processor) : computer(drive, Processor) {
+class server(drive: computerDrive, Processor: processor, override val ports: List<port>) :
+    computer(drive, Processor, ports) {
 
 }
 
