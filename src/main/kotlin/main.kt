@@ -13,7 +13,6 @@ class ssd(override val capacity: Double, override val speed: Double) : computerD
     override fun writeData(): String {
         return "writeData - ssd"
     }
-
 }
 
 interface processor {
@@ -28,6 +27,8 @@ class interCorei7(override val processorSpeed: Double, override val noCores: Dou
         return "startProgram"
     }
 }
+
+class amdRyzen7
 
 open class computer(drive: computerDrive, Processor: processor) : computerDrive by drive, processor by Processor {
     fun start() {
