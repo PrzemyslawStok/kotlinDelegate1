@@ -58,11 +58,13 @@ class server(drive: computerDrive, Processor: processor, override val ports: Lis
 
 
 fun main() {
-    val simpleComputer = computer(ssd(2048.0, 500.0), interCorei7(1000.0, 4.0))
+    val ports = listOf<port>()
+
+    val simpleComputer = computer(ssd(2048.0, 500.0), interCorei7(1000.0, 4.0),ports)
     simpleComputer.start()
     simpleComputer.info()
 
-    val nextComputer = computer(ssd(1024.0, 1024.0), amdRyzen7(1500.0, 8.0))
+    val nextComputer = computer(ssd(1024.0, 1024.0), amdRyzen7(1500.0, 8.0),ports)
     nextComputer.start()
     nextComputer.info()
 }
